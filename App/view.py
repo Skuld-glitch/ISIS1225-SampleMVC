@@ -42,6 +42,8 @@ def printMenu():
     print("Opciones:")
     print("1- Cargar Libros")
     print("2- Cargar Tags")
+    print("3- Cargar Tags de los libros")
+
     # TODO: Modificaciones para el laboratorio 1.
     print("0- Salir")
 
@@ -60,6 +62,12 @@ def loadTags():
     return controller.loadTags('GoodReads/tags.csv')
 
 
+def loadBookTags():
+    """
+    Carga los Tags de los libros
+    """
+    return controller.loadTags('GoodReads/book_tags-small.csv')
+
 """
 Menu principal
 """
@@ -76,8 +84,16 @@ while True:
         tags = loadTags()
         print('Total de tags cargados: ' + str(lt.size(tags)))
 
+    elif int(inputs[0]) == 3:
+        print("Cargando información de tags de los libros....")
+        tags = loadBookTags()
+        print('Total de tags de libros cargados: ' + str(lt.size(tags)))
+
+
     # TODO: Modificaciones para el laboratorio 1.
 
     else:
         sys.exit(0)
 sys.exit(0)
+git config --global user.email "ds.rodriguezf1@uniandes.edu.co"
+git config --global user.name "Daniel"
